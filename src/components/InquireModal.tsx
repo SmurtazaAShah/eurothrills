@@ -73,7 +73,7 @@ export default function InquireModal({ isOpen, onClose }: Props) {
         message: form.message || null,
       }])
       if (dbError) {
-        setError('Something went wrong. Please email us at hello@eurothrills.com')
+        setError(dbError.message || 'Something went wrong. Please email us at hello@eurothrills.com')
       } else {
         setSubmitted(true)
         setForm(blank)
