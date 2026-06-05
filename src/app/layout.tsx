@@ -8,6 +8,10 @@ export const metadata: Metadata = {
     template: '%s | EuroThrills',
   },
   description: 'Hand-vetted adventure experiences across 47 European destinations. Skiing, cycling, paragliding and more.',
+  icons: {
+    icon: '/logo-mark.png',
+    apple: '/logo-mark.png',
+  },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

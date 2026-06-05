@@ -734,6 +734,84 @@ footer { background: linear-gradient(135deg, var(--et-deep-2) 0%, var(--et-brand
 .form-textarea { min-height: 96px; resize: vertical; line-height: 1.5; }
 .form-error { font-size: 12.5px; color: var(--et-accent); margin-top: 2px; }
 
+/* ── Winter Skiing page ── */
+.ski-hero {
+  position: relative; background: #0c1220; color: #fff;
+  padding: 100px 0 84px; overflow: hidden;
+}
+.ski-hero-bg {
+  position: absolute; inset: 0; z-index: 0;
+  background-image: url('https://images.unsplash.com/photo-1551524559-8af4e6624178?w=2000&q=80&auto=format&fit=crop');
+  background-size: cover; background-position: center 38%; opacity: 0.32;
+}
+.ski-hero-overlay {
+  position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(180deg, rgba(12,18,32,.55) 0%, rgba(12,18,32,.1) 45%, rgba(12,18,32,.72) 100%);
+}
+.ski-hero-content { position: relative; z-index: 2; }
+.ski-hero h1 {
+  font-size: clamp(44px, 5.8vw, 82px);
+  font-weight: 800; letter-spacing: -0.03em; line-height: 0.96;
+  margin: 18px 0 22px; max-width: 14ch; color: #fff;
+}
+.ski-hero h1 em {
+  font-family: var(--display); font-style: italic; font-weight: 400; color: var(--et-accent);
+}
+.ski-hero-sub {
+  font-size: 17.5px; line-height: 1.55; color: rgba(255,255,255,.76); max-width: 520px; margin: 0;
+}
+.ski-hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 9px;
+  font-size: 11.5px; font-weight: 600; color: var(--et-accent);
+  text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0;
+}
+.ski-hero-eyebrow::before { content: ""; display: block; width: 18px; height: 1px; background: var(--et-accent); }
+.ski-filters {
+  background: var(--et-paper); border-bottom: 1px solid var(--et-line); padding: 20px 0;
+}
+.ski-filter-inner { display: flex; flex-direction: column; gap: 12px; }
+.ski-filter-group { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.ski-filter-label {
+  font-size: 11.5px; font-weight: 600; color: var(--et-mute);
+  text-transform: uppercase; letter-spacing: 0.07em; min-width: 52px; white-space: nowrap;
+}
+.ski-filter-btn {
+  padding: 5px 13px; border-radius: 9999px; font-size: 13px; font-weight: 500;
+  border: 1.5px solid var(--et-line-2); color: var(--et-ink-3); background: var(--et-paper);
+  cursor: pointer; transition: all .15s ease; white-space: nowrap; font-family: inherit;
+}
+.ski-filter-btn:hover { border-color: var(--et-brand); color: var(--et-brand); }
+.ski-filter-btn.active { background: var(--et-brand); border-color: var(--et-brand); color: #fff; }
+.ski-thumb {
+  height: 204px; position: relative; overflow: hidden;
+  display: flex; align-items: flex-end; justify-content: space-between; padding: 12px 14px;
+}
+.ski-thumb::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(170deg, rgba(0,0,0,0) 30%, rgba(0,0,0,.5) 100%);
+}
+.ski-thumb-icon {
+  position: absolute; inset: 0; display: grid; place-items: center;
+  color: rgba(255,255,255,.1);
+}
+.ski-thumb > * { position: relative; z-index: 1; }
+.ski-trips-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.ski-card-foot {
+  margin-top: auto; padding-top: 14px; border-top: 1px solid var(--et-line);
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+}
+.ski-duration {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 13px; font-weight: 600; color: var(--et-ink-2);
+}
+.ski-duration svg { color: var(--et-mute); }
+@media (max-width: 1024px) { .ski-trips-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px) {
+  .ski-hero { padding: 64px 0 56px; }
+  .ski-trips-grid { grid-template-columns: 1fr; }
+  .ski-filter-group { gap: 6px; }
+}
+
 /* ── Responsive ── */
 @media (max-width: 1024px) {
   .xp-grid, .why-grid, .tm-grid, .how-grid, .stats-grid { grid-template-columns: 1fr 1fr; }
