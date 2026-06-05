@@ -184,6 +184,16 @@
   font-size: 17px;
   margin-bottom: 12px;
 }
+.viewDest {
+  display: inline-flex;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 600;
+  color: #1E40A8;
+  transition: color 0.12s;
+  margin-top: -2px;
+}
+.viewDest:hover { color: #E1251B; }
 
 @media (max-width: 1024px) {
   .tripsGrid { grid-template-columns: repeat(2, 1fr); }

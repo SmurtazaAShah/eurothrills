@@ -1,5 +1,6 @@
 'use client'
 import { useState } from 'react'
+import Link from 'next/link'
 import { useInquire } from './InquireProvider'
 import s from '@/app/winter-skiing/styles.module.css'
 
@@ -13,6 +14,7 @@ interface Trip {
   nights: number
   color: string
   description: string
+  href?: string
 }
 
 const trips: Trip[] = [
@@ -26,6 +28,7 @@ const trips: Trip[] = [
     nights: 7,
     color: '#162D72',
     description: "Access the 4 Vallées from a ski-in/ski-out chalet with a guide who's skied here for twelve winters.",
+    href: '/winter-skiing/verbier',
   },
   {
     id: 2,
@@ -202,6 +205,11 @@ export default function SkiTripsSection() {
 
                     <div className="xp-body">
                       <h3 className="xp-title">{trip.title}</h3>
+                      {trip.href && (
+                        <Link href={trip.href} className={s.viewDest}>
+                          View destination →
+                        </Link>
+                      )}
                       <p className="xp-desc">{trip.description}</p>
                       <div className={s.cardFoot}>
                         <span className={s.duration}>

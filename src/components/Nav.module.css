@@ -1,0 +1,311 @@
+/* ── Dropdown trigger wrapper ── */
+.navItem {
+  display: inline-flex;
+  position: relative;
+}
+.navLinkOpen {
+  color: #1E40A8 !important;
+}
+
+/* ── Desktop mega panel ── */
+.panel {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #fff;
+  border-top: 1px solid #E6E6E6;
+  box-shadow: 0 20px 60px -16px rgba(14, 31, 82, 0.18);
+  animation: megaIn 0.14s ease;
+  z-index: 0;
+}
+@keyframes megaIn {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+.panelInner {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 28px 32px 32px;
+  display: flex;
+  align-items: flex-start;
+}
+.cols {
+  display: flex;
+  flex: 1;
+}
+.col {
+  flex: 1;
+  padding-right: 28px;
+  margin-right: 28px;
+  border-right: 1px solid #E6E6E6;
+}
+.col:last-child {
+  border-right: none;
+  margin-right: 0;
+  padding-right: 0;
+}
+.colLabel {
+  font-size: 10.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #888888;
+  margin: 0 0 10px;
+}
+.colList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+.colLink {
+  display: flex;
+  align-items: baseline;
+  gap: 7px;
+  padding: 7px 8px;
+  border-radius: 6px;
+  transition: background 0.12s;
+  color: #2A2A2A;
+}
+.colLink:hover { background: #F5F7FB; }
+.colLink:hover .colLinkName { color: #E1251B; }
+.colLinkName {
+  font-size: 13.5px;
+  font-weight: 500;
+  color: #2A2A2A;
+  transition: color 0.12s;
+  white-space: nowrap;
+}
+.colLinkSub {
+  font-size: 11.5px;
+  color: #AAAAAA;
+  font-weight: 400;
+  white-space: nowrap;
+}
+.divider {
+  width: 1px;
+  background: #E6E6E6;
+  align-self: stretch;
+  flex-shrink: 0;
+  margin: 0 28px;
+}
+.featured {
+  width: 240px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+.featuredImg {
+  width: 100%;
+  height: 132px;
+  border-radius: 10px;
+  background: #E2E8F0;
+  flex-shrink: 0;
+  margin-bottom: 2px;
+}
+.featuredBadge {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #E1251B;
+}
+.featuredTitle {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  line-height: 1.3;
+  color: #1A1A1A;
+  margin: 0;
+}
+.featuredDesc {
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: #555555;
+  margin: 0;
+}
+.featuredLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #1E40A8;
+  margin-top: 2px;
+  transition: color 0.12s;
+}
+.featuredLink:hover { color: #E1251B; }
+
+/* ── Mobile visibility helpers ──
+   These classes carry no styles — only used as media query hooks  */
+.desktopNav   {}
+.desktopRight {}
+
+/* Shown on mobile, hidden on desktop */
+.mobileRight {
+  display: none;
+  margin-left: auto;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+/* ── Mobile drawer ── */
+.drawer {
+  position: fixed;
+  top: 68px;        /* header height */
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #fff;
+  z-index: 59;      /* header is 60, sits on top */
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  border-top: 1px solid #E6E6E6;
+  animation: drawerIn 0.18s ease;
+}
+@keyframes drawerIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+/* Row for nav items with a sub-menu trigger */
+.drawerItem {
+  display: flex;
+  align-items: stretch;
+  border-bottom: 1px solid #F0F2F5;
+}
+.drawerMainLink {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding: 18px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #1A1A1A;
+  transition: color 0.12s;
+}
+.drawerMainLink:hover { color: #1E40A8; }
+
+.drawerToggle {
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  color: #AAAAAA;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.12s;
+  font-family: inherit;
+}
+.drawerToggle:hover  { color: #1E40A8; }
+.drawerToggleOpen    { color: #1E40A8; }
+
+/* Accordion — expanded filter groups */
+.accordion {
+  background: #F8FAFD;
+  border-bottom: 1px solid #F0F2F5;
+  padding: 8px 0 16px;
+}
+.accordionGroup { padding: 12px 20px 4px; }
+.accordionGroupLabel {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #BBBBBB;
+  margin: 0 0 6px;
+}
+.accordionList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.accordionLink {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 10px;
+  border-radius: 7px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #333333;
+  transition: background 0.12s, color 0.12s;
+}
+.accordionLink:hover {
+  background: #EDF1F8;
+  color: #E1251B;
+}
+.accordionLinkSub {
+  font-size: 11.5px;
+  color: #AAAAAA;
+  font-weight: 400;
+}
+.accordionViewAllWrap {
+  padding: 12px 20px 0;
+  border-top: 1px solid #EEEEF2;
+  margin-top: 8px;
+}
+.accordionViewAll {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #1E40A8;
+  transition: color 0.12s;
+}
+.accordionViewAll:hover { color: #E1251B; }
+
+/* Simple (non-dropdown) drawer link */
+.drawerSimpleLink {
+  display: flex;
+  align-items: center;
+  padding: 18px 20px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #555555;
+  border-bottom: 1px solid #F0F2F5;
+  transition: color 0.12s;
+}
+.drawerSimpleLink:hover { color: #1A1A1A; }
+
+/* CTA area at bottom of drawer */
+.drawerFooter {
+  padding: 24px 20px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.drawerInquireBtn {
+  width: 100%;
+  height: 52px !important;
+  font-size: 15px !important;
+  border-radius: 10px !important;
+}
+.drawerSignIn {
+  display: flex;
+  justify-content: center;
+  padding: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #888888;
+  transition: color 0.12s;
+}
+.drawerSignIn:hover { color: #1A1A1A; }
+
+/* ── Responsive breakpoints ── */
+@media (min-width: 768px) {
+  .mobileRight { display: none; }
+  .drawer      { display: none; }
+}
+@media (max-width: 767px) {
+  .desktopNav   { display: none; }
+  .desktopRight { display: none; }
+  .mobileRight  { display: flex; }
+  .panel        { display: none; }
+}
