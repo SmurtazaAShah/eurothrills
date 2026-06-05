@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import InquireProvider from '@/components/InquireProvider'
 
 export const metadata: Metadata = {
   title: {
@@ -21,7 +22,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body>
-        {children}
+        <InquireProvider>
+          {children}
+        </InquireProvider>
         {/* Botpress webchat */}
         <script src="https://cdn.botpress.cloud/webchat/v3.6/inject.js"></script>
         <script src="https://files.bpcontent.cloud/2026/06/05/02/20260605025003-84UMJWH0.js" defer></script>

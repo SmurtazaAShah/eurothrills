@@ -2,6 +2,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { useInquire } from './InquireProvider'
 
 const navLinks = [
   { href: '/winter-skiing', label: 'Winter Skiing', dropdown: true },
@@ -29,6 +30,7 @@ function ArrowRight() {
 
 export default function Nav() {
   const [mobileOpen, setMobileOpen] = useState(false)
+  const { openInquire } = useInquire()
 
   return (
     <header className="hdr" role="banner">
@@ -51,9 +53,9 @@ export default function Nav() {
 
         <div className="hdr-right">
           <Link href="/signin" className="btn btn-ghost">Sign in</Link>
-          <Link href="/inquire" className="btn btn-primary">
+          <button className="btn btn-primary" onClick={openInquire}>
             Inquire now <ArrowRight />
-          </Link>
+          </button>
         </div>
 
         <button

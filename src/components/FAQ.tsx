@@ -1,5 +1,6 @@
 'use client'
 import { useState } from 'react'
+import { useInquire } from './InquireProvider'
 
 function PlusIcon() {
   return (
@@ -42,6 +43,7 @@ const faqs = [
 
 export default function FAQ() {
   const [open, setOpen] = useState<number | null>(0)
+  const { openInquire } = useInquire()
 
   return (
     <section style={{ background: 'var(--et-paper)', borderTop: '1px solid var(--et-line)' }} id="faq">
@@ -57,9 +59,9 @@ export default function FAQ() {
               Still have questions? Our team replies within 24 hours on weekdays.
             </p>
             <div style={{ marginTop: 28, display: 'flex', gap: 12 }}>
-              <a href="/inquire" className="btn btn-primary">
+              <button className="btn btn-primary" onClick={openInquire}>
                 Inquire now
-              </a>
+              </button>
               <a href="mailto:hello@eurothrills.com" className="btn btn-outline">
                 Email us
               </a>
